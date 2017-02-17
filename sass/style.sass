@@ -1,0 +1,510 @@
+$primary-red: #E31B23
+$grey: #8D8D8D
+
+=breakpoint($point)
+  @if $point == mobile_small
+    @media (min-width: 320px)
+      @content
+  @else if $point == mobile
+    @media (min-width: 480px)
+      @content
+  @else if $point == tablet
+    @media (min-width: 768px)
+      @content
+  @else if $point == laptop
+    @media (min-width: 920px)
+      @content        
+
+body 
+  margin: 0
+  font-family: 'Lato', sans-serif
+
+
+.container 
+  max-width: 1200px
+  margin: 0 auto
+
+section>.container 
+  margin: 20px auto
+  +breakpoint('tablet')
+    margin: 50px auto
+
+.navigation 
+  background: $primary-red
+  height: 160px
+  +breakpoint('tablet')
+    height: 60px
+    margin-top: 60px 
+
+header
+  nav>img 
+    padding: 5px 0
+    position: relative
+    bottom: 60px
+
+  nav>ul 
+    margin: 0
+    padding: 0
+    text-align: center
+    // USUWANIE ZNAKÓW LISTY UL (NIENUMEROWANEJ) 
+    list-style-type: none
+    +breakpoint('laptop')
+      float: right
+
+    li
+      display: block
+      +breakpoint('tablet')
+        display: inline-block
+        
+      a
+        line-height: 40px
+        display: block
+        color: #fff
+        text-decoration: none
+        text-transform: uppercase
+        +breakpoint('tablet')
+          padding: 0 40px
+          font-size: 18px
+          line-height: 60px
+        &:hover
+          background: #C40404
+          color: #FBE048
+          font-weight: bold
+
+.logo 
+  display: none
+  +breakpoint('laptop')
+    height: 150px
+    display: block
+    float: left
+   
+
+.jumbotron 
+  background-image: url("http://i.imgur.com/zODzVj6.jpg")
+  max-width: 1200px
+  margin: 0 auto
+  height: 300px
+  background-size: cover
+  background-position: center
+  padding-top: 150px
+  +breakpoint('tablet')
+    height: 450px
+
+.slogan 
+  padding: 20px 30px 20px 20px
+  background: rgba(0,0,0, 0.6)
+  color: #fff
+  font-style: italic  
+  +breakpoint('tablet') 
+    padding: 50px 250px 50px 50px
+    margin-top: 125px
+    font-size: 24px
+    float: right
+    height: 100px
+    max-width: 800px
+
+.row:before,
+.row:after 
+  content: " " /* 1 */
+  display: table /* 2 */
+
+.row:after 
+  clear: both
+
+
+[class*="col-"] 
+  text-align: center
+  +breakpoint('tablet')
+    float: left
+    min-height: 80px
+
+// Column widths 
+.col-4 
+  width: 33.33%
+
+.col-8 
+  width: 66.66%
+
+.col-galleryLong 
+  width: 40%
+
+.col-3 
+  +breakpoint('tablet')
+    width: 25%
+
+.col-7 
+  +breakpoint('tablet')
+    width: 58.33%
+
+.col-12-m 
+  width: 100%
+  +breakpoint('tablet') 
+    width: 33.33%
+
+/* Column offsets */
+.col-offset-1 
+  +breakpoint('tablet')
+    margin-left: 8.33%
+
+.col-offset-2 
+  +breakpoint('tablet')
+    margin-left: 16.66%
+
+.icon 
+  background: $primary-red
+  color: #fff
+  font-size: 48px !important
+  padding: 5px
+  border-radius: 10px
+  cursor: pointer
+  width: 45px
+  +breakpoint('tablet')
+    font-size: 74px !important
+    padding: 10px
+    margin-top: 10px
+    width: 80px
+
+.social 
+  display: block
+  font-size: 1.2em
+  font-weight: bold
+  text-transform: uppercase
+  -webkit-margin-before: 0.83em
+  -webkit-margin-after: 0.83em
+  -webkit-margin-start: 0px
+  -webkit-margin-end: 0px
+  +breakpoint('tablet') 
+    font-size: 1.5em
+
+.col-4 p 
+  font-size: 12px
+  padding: 0 20px 0 20px
+  color: $grey
+  +breakpoint('tablet') 
+    font-size: 14px
+    padding: 0 50px 0 50px
+    
+.news 
+  background: #fff
+  height: 140px
+  margin-bottom: 50px
+  
+  h2 
+    text-align: center
+    color: $primary-red
+    text-transform: uppercase
+    font-size: 28px
+    +breakpoint('tablet')
+      font-size: 48px
+  p  
+    color: $grey
+    text-align: center
+    font-size: 14px
+    padding: 0 20px 0 20px
+    +breakpoint('tablet') 
+      padding: 0 200px 0 200px
+      font-size: 16px
+
+/*-- GALLERY --*/
+
+.gallery 
+  border-top: 1px solid #000
+  border-bottom: 1px solid #000
+
+.col-galleryLong 
+  background-image: url("http://contactnumbers.guru/wp-content/uploads/2014/06/liverpool-fc-players-1024x745.jpg")
+  background-size: cover
+  background-position: center
+  height: 100px
+  width: 100%
+  +breakpoint('tablet') 
+    height: 300px
+    width: 40%
+
+.overline 
+  height: 100%
+  width: 100%
+  background: rgba(0,0,0,0.3)
+  display: flex
+  justify-content: center
+  align-items: center
+  color: #fff
+  opacity: 0
+  transition: opacity 0.3s
+  &:hover
+    opacity: 1
+
+.gallery .fa 
+  margin: 10px
+  font-size: 35px
+
+.col-gallery 
+  background-size: cover !important
+  height: 100px
+  width: 100%
+  +breakpoint('tablet') 
+    height: 300px
+    width: 20%
+
+.team 
+  +breakpoint('laptop')
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    padding-top: 15px
+    height: 450px
+
+.row-team 
+  display: flex
+  flex-direction: column
+  align-items: center
+  padding: 10px
+  +breakpoint('tablet')
+    padding: 30px
+
+[class*="col-team"]
+  background-size: cover
+  background-position: center
+  height: 150px
+  width: 150px
+  border-radius: 50%
+  +breakpoint('tablet')
+    height: 250px
+    width: 250px
+  &:hover
+    background: rgba(0,0,0, 0.6)
+
+.col-team1 
+  background-image: url(https://cdn.pixabay.com/photo/2015/04/30/11/36/business-woman-746766_960_720.jpg)
+
+.col-team2 
+  background-image: url(http://www.bp.com/content/bp/en/global/corporate/about-bp/board-and-executive-management/the-board/carl-henric-svanberg/jcr:content/article_dropzone/image.img.350.high.jpg/1444291346348.jpg)
+
+.col-team3 
+  background-image: url(http://www.bp.com/content/bp/en/global/corporate/about-bp/board-and-executive-management/the-board/bob-dudley/jcr:content/article_dropzone/image.img.350.high.jpg/1457011968784.jpg)
+
+.col-team4 
+  background-image: url(http://www.bp.com/content/bp/en/global/corporate/about-bp/board-and-executive-management/the-board/cynthia-carroll/jcr:content/article_dropzone/image.img.350.high.jpg/1443607265551.jpg)
+
+.team-overline 
+  height: 100%
+  width: 100%
+  background: rgba(0,0,0,0.8)
+  display: flex
+  justify-content: center
+  align-items: center
+  color: white
+  opacity: 0
+  transition: opacity 0.3s
+  border-radius: 50%
+  &:hover 
+    opacity: 1
+
+.row-team 
+  p 
+    font-weight: bold
+
+.container-full 
+  width: 100%
+  background: #E31B23
+  text-align: center
+  +breakpoint('tablet')  
+    height: 300px
+
+.app-img
+  display: flex
+  justify-content: center
+  width: 100%
+  +breakpoint('tablet')
+    display: block
+    width: 30%
+
+.app-photo 
+  height: 150px
+  width: 100px
+  +breakpoint('tablet')
+    height: 290px
+    width: 200px
+
+.app-header 
+  h2 
+    font-size: 16px
+    color: #FBE048
+    +breakpoint('tablet')
+      font-size: 32px
+
+.app-paragraphs 
+  font-size: 12px
+  color: #fff
+  padding: 5px
+  +breakpoint('laptop')
+    font-size: 18px
+    display: flex
+    width: 700px
+    padding: 30px
+
+.app-paragraph2 
+  font-style: italic
+  padding-left: 30px
+
+//@media #{$smartphone} 
+//  .app-paragraph1, .app-paragraph2 
+//    padding: 5px
+
+.stats-container 
+  border-top: 1px #E31B23 solid
+  height: 640px
+  width: 100%
+  text-align: center
+  +breakpoint('tablet')  
+    display: flex
+    flex-direction: row
+    justify-content: space-around
+    height: 240px   
+
+
+.stats
+  +breakpoint('tablet') 
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding-top: 10px
+  h1 
+    font-size: 40px
+    color: $primary-red
+    font-weight: 900
+    +breakpoint('tablet')
+      font-size: 60px
+      margin-bottom: -25px
+
+  h2
+    font-size: 20px
+    color: #FBE048
+    text-transform: uppercase
+    text-decoration: underline
+    +breakpoint('tablet')
+      font-size: 30px    
+
+/*  ----FOOTER----- */
+
+footer 
+  height: 435px
+  background: $primary-red
+  font-size: 10px
+  padding-top: 8px
+  +breakpoint('tablet') 
+    height: 465px
+    display: flex
+    justify-content: space-around
+    flex-wrap: wrap
+    padding-top: 20px
+    font-size: 14px
+  +breakpoint('laptop')
+    height: 320px
+    font-size: 16px    
+
+[class*="footer-col"] 
+  width: 100%
+  color: #fff
+  font-size: 12px
+  +breakpoint('laptop') 
+    width: 30%
+    padding-right: 15px
+    font-size: 16px  
+  
+  h1 
+    font-size: 18px
+    color: #FBE048
+    text-transform: uppercase
+    +breakpoint('tablet')  
+      font-size: 22px
+      width: 100%
+    +breakpoint('laptop') 
+      font-size: 25px
+      width: 100%
+
+.footer-col1, .footer-col2 
+  +breakpoint('tablet') 
+    border-right: 2px solid #FBE048
+
+.footer-col1, .footer-col2, .footer-col3 
+  padding: 5px
+
+.nested-columns 
+  display: flex
+  flex-direction: row
+
+.column-left 
+  display: flex
+  flex-direction: column
+  width: 30%
+
+.column-right 
+  line-height: 15px
+  +breakpoint('tablet') 
+    margin-top: -16px
+    width: 70%
+
+  p
+    position: relative
+    bottom: 20px
+    font-size: 12px
+    +breakpoint('tablet')
+      line-height: 30px
+      top: 10px
+      font-size: 12px
+      padding: 0 5px
+    +breakpoint('laptop')  
+      font-size: 16px
+      bottom: 0px
+      padding-top: 5px
+
+.address
+  +breakpoint('tablet')
+    margin-top: 10px
+    padding-left: 10px
+
+.phone 
+  margin-top: 20px   
+  +breakpoint('tablet') 
+    margin-top: 33px
+    padding-left: 10px
+
+.email 
+  margin-top: 25px
+  +breakpoint('tablet') 
+    margin-top: 34px
+    padding-left: 10px  
+
+.social-buttons 
+  font-size: 24px
+  +breakpoint('tablet')
+    font-size: 30px
+  
+.fa 
+  text-align: center
+  padding: 5px
+  padding-top: 5px
+  width: 25px
+  height: 25px
+  color: #E31B23
+  background: #fff
+  border-radius: 25%
+  +breakpoint('tablet')
+    padding-top: 10px
+    width: 35px
+    height: 35px
+
+.copyrights 
+  color: #FBE048
+  background: #C40404
+  font-size: 12px
+  width: 100%
+  height: 30px
+  text-align: center
+  padding-top: 15px
+  +breakpoint('tablet') 
+    font-size: 16px
+    height: 50px
+    padding-top: 25px
