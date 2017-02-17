@@ -32,13 +32,28 @@ module.exports = function(grunt) {
             spawn: false,
         },
     } 
-  }
+  },
+
+  browserSync: {
+            dev: {
+                bsFiles: {
+                    src : [
+                        '/css/main.css',
+                        '/*.html'
+                    ]
+                },
+                options: {
+                    watchTask: true,
+                    server: './'
+                }
+            }
+        }
   });
+
   // Load the plugins tasks 
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
-  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-browser-sync');
+  grunt.loadNpmTasks('grunt-contrib-watch'); //watch zawsze na koncu!
   // Default task(s).
-  grunt.registerTask('default', ['sass', 'imagemin', 'watch']);
-};
+  grunt.registerTask('default', ['sass', 'imagemin', 'browserSync', 'watch']); //watch zawsze na koncu! - blokuje pozostale pluginy
