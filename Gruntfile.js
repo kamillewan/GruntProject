@@ -56,4 +56,4 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-contrib-watch'); //watch zawsze na koncu!
   // Default task(s).
-  grunt.registerTask('default', ['sass', 'imagemin', 'browserSync', 'watch']); //watch zawsze na koncu! - blokuje pozostale pluginy
+  grunt.registerTask('default', ['sass', 'imagemin', 'browserSync', 'watch']);
