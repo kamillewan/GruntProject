@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: "Lato", sans-serif; }
+  font-family: 'Lato', sans-serif; }
 
 .container {
   max-width: 1200px;
@@ -24,6 +24,7 @@ header nav > img {
   padding: 5px 0;
   position: relative;
   bottom: 60px; }
+
 header nav > ul {
   margin: 0;
   padding: 0;
@@ -193,7 +194,7 @@ header nav > ul {
         padding: 0 200px 0 200px;
         font-size: 16px; } }
 
-/*-- GALLERY -- */
+/*-- GALLERY --*/
 .gallery {
   border-top: 1px solid #000;
   border-bottom: 1px solid #000; }
@@ -360,6 +361,7 @@ header nav > ul {
     flex-direction: column;
     align-items: center;
     padding-top: 10px; } }
+
 .stats h1 {
   font-size: 40px;
   color: #E31B23;
@@ -368,6 +370,7 @@ header nav > ul {
     .stats h1 {
       font-size: 60px;
       margin-bottom: -25px; } }
+
 .stats h2 {
   font-size: 20px;
   color: #FBE048;
@@ -510,4 +513,4 @@ footer {
       height: 50px;
       padding-top: 25px; } }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=main.css.map */
